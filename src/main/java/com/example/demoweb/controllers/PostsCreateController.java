@@ -7,13 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PostsCreateController {
     @Autowired
     PostService postService;
     @RequestMapping(path = "/new", method = RequestMethod.GET)
-    public String create(Model model) {
+    public @ResponseBody String create(Model model) {
         model.addAttribute("appName", "HELLO APP");
         return "create";
     }
